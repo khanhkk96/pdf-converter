@@ -1,0 +1,103 @@
+﻿<Window x:Class="PdfConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PdfConverter"
+        mc:Ignorable="d" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        Title="khanhkk" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="50 0 0 0"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="DarkGreen"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="MaxWidth" Value="300"></Setter>
+            <Setter Property="BorderBrush" Value="DarkGreen"></Setter>
+            <Setter Property="BorderThickness" Value="0 1 0 1"></Setter>
+            <Setter Property="FontSize" Value="13"></Setter>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="MaxWidth" Value="120" ></Setter>
+            <Setter Property="BorderBrush" Value="DarkGreen"></Setter>
+            <Setter Property="Foreground" Value="DarkGreen"></Setter>
+            <Setter Property="FontWeight" Value="DemiBold"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Resources></Grid.Resources>
+            <Label HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Foreground="DarkGreen" Content="Công cụ chuyển đổi docs thành pdf"></Label>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Label Content="Thư mục docs"></Label>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBox x:Name="txtDocFolder"></TextBox>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button x:Name="btnSelectDocFolder" Click="btnSelectDocFolder_Click" Content="Chọn thư mục"></Button>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Label Content="Thư mục pdf"></Label>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBox x:Name="txtPdfFolder"></TextBox>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button x:Name="btnSelectPdfFolder" RenderTransformOrigin="0.7,0.5" Click="btnSelectPdfFolder_Click" Content="Chọn thư mục"></Button>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="3">
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderBrush" Value="DarkGreen"></Setter>
+                    <Setter Property="Foreground" Value="DarkGreen"></Setter>
+                    <Setter Property="FontWeight" Value="DemiBold"></Setter>
+                    <Setter Property="Background" Value="White"></Setter>
+                    <Setter Property="FontSize" Value="16"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Button Width="200" Height="80" x:Name="btnConvert" Click="btnConvert_Click" Content="Bắt đầu chuyển đổi"></Button>
+        </Grid>
+    </Grid>
+</Window>
