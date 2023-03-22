@@ -4,11 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Double-J-Design-Blueprint-Adobe-blueprint-pdf-symbol.ico</ApplicationIcon>
+    <ApplicationIcon>Treetog-File-Type-Pdf.ico</ApplicationIcon>
     <Authors>khanhkk</Authors>
     <PackageIcon>Treetog-File-Type-Pdf.ico</PackageIcon>
     <PackageIconUrl />
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
