@@ -42,8 +42,9 @@ namespace PdfConverter
         {
             string docFolder = txtDocFolder.Text;
             string pdfFolder = txtPdfFolder.Text;
+            string volumeInput = txtVolume.Text;
             int rs = 0;
-            using (LoadingControl loading = new LoadingControl((x) => rs = Convert(docFolder, pdfFolder)))
+            using (LoadingControl loading = new LoadingControl((x) => rs = Convert(docFolder, pdfFolder, volumeInput)))
             {
                 loading.Owner = this;
                 loading.ShowDialog();
@@ -67,16 +68,25 @@ namespace PdfConverter
                     MessageBox.Show("Thư mục nhận kết quả không tồn tại.");
                     break;
 
+                case 4:
+                    MessageBox.Show("Số lượng file không hợp lệ.");
+                    break;
+
+                case 5:
+                    MessageBox.Show("Số lượng file quá lớn.");
+                    break;
+
                 default:
                     MessageBox.Show("Lỗi chyển đổi.");
                     break;
             }
         }
 
-        private int Convert(string docPath, string pdfPath)
+        private int Convert(string docPath, string pdfPath, string volume = "3")
         {
             docPath = docPath.Trim();
             pdfPath = pdfPath.Trim();
+            volume = volume?.Trim();
             if (String.IsNullOrEmpty(docPath) || String.IsNullOrEmpty(pdfPath))
             {
                 return 1;
@@ -92,10 +102,24 @@ namespace PdfConverter
                 return 3;
             }
 
+            int batchVolume = 3;
+            if (!string.IsNullOrEmpty(volume))
+            {
+                bool validateVolume = int.TryParse(volume, out batchVolume);
+                if (!validateVolume)
+                {
+                    return 4;
+                }
+            }
+
+            if(batchVolume > 10)
+            {
+                return 5;
+            }
+
             var files = Directory.GetFiles(docPath).Where(x => Path.GetExtension(x) == ".docx" || Path.GetExtension(x) == ".doc");
             int skip = 0;
             string resultDir = pdfPath;
-            int batchVolume = 5;
 
             while (files.Skip(skip).Count() > 0)
             {

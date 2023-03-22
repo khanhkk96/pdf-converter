@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfConverter", "PdfConverter\PdfConverter.csproj", "{0930C078-8CD7-4BA2-986E-E76CE77B439D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfConverter", "PdfConverter\PdfConverter.csproj", "{0930C078-8CD7-4BA2-986E-E76CE77B439D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PdfConverterSetup", "PdfConverterSetup\PdfConverterSetup.vdproj", "{1EFB59EC-A37F-4031-A00F-ACCD5CED575C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{0930C078-8CD7-4BA2-986E-E76CE77B439D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0930C078-8CD7-4BA2-986E-E76CE77B439D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0930C078-8CD7-4BA2-986E-E76CE77B439D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFB59EC-A37F-4031-A00F-ACCD5CED575C}.Debug|Any CPU.ActiveCfg = Debug
+		{1EFB59EC-A37F-4031-A00F-ACCD5CED575C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
